@@ -2,3 +2,5 @@
 build
 bin
 /ShopCustomer/obj
+Debug
+/ShopCustomer/bin
