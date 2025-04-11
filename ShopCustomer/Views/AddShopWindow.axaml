@@ -1,0 +1,16 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:ShopCustomer.ViewModels"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
+        x:Class="ShopCustomer.Views.AddShopWindow"
+        x:DataType="vm:AddShopViewModel"
+        Title="Добавление магазина">
+    <StackPanel Margin="10">
+        <TextBlock Text="Введите название магазина:" Margin="0,0,0,10"/>
+        <TextBox x:Name="ShopNameTextBox" Width="200" Margin="0,0,0,10" 
+                 Text="{Binding ShopName, Mode=TwoWay}" />
+        <Button Content="Добавить" HorizontalAlignment="Center" Command="{Binding AddShopCommand}"/>
+    </StackPanel>
+</Window>

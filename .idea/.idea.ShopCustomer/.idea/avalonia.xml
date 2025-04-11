@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="ShopCustomer/App.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/AddCustomerWindow.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/AddDeliveryServiceWindow.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/AddProduct.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/AddShopWindow.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/LogView.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/MainWindow.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+        <entry key="ShopCustomer/Views/ProductListView.axaml" value="ShopCustomer/ShopCustomer.csproj" />
+      </map>
+    </option>
+  </component>
+</project>
