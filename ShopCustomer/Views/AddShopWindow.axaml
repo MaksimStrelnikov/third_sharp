@@ -4,13 +4,22 @@
         xmlns:vm="clr-namespace:ShopCustomer.ViewModels"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
+        Width="350" Height="100"
         x:Class="ShopCustomer.Views.AddShopWindow"
         x:DataType="vm:AddShopViewModel"
-        Title="Добавление магазина">
-    <StackPanel Margin="10">
-        <TextBlock Text="Введите название магазина:" Margin="0,0,0,10"/>
-        <TextBox x:Name="ShopNameTextBox" Width="200" Margin="0,0,0,10" 
-                 Text="{Binding ShopName, Mode=TwoWay}" />
-        <Button Content="Добавить" HorizontalAlignment="Center" Command="{Binding AddShopCommand}"/>
+        Title="Добавление магазина"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10" Spacing="10">
+        <Grid ColumnDefinitions="Auto, 10, *">
+            <TextBlock Grid.Column="0" Text="Название:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Column="2" Text="{Binding ShopName}" HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center" />
+        </Grid>
+        <Button Content="Добавить"
+                Command="{Binding AddShopCommand}"
+                HorizontalAlignment="Center"/>
     </StackPanel>
 </Window>

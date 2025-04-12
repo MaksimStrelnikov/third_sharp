@@ -4,32 +4,38 @@
         xmlns:vm="clr-namespace:ShopCustomer.ViewModels"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="150"
+        Width="500" Height="175"
         x:Class="ShopCustomer.Views.AddDeliveryServiceWindow"
         x:DataType="vm:AddDeliveryServiceViewModel"
-        Title="Добавить службу доставки">
+        Title="Добавление службы доставки"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
     <StackPanel Margin="10" Spacing="10">
+        <Grid RowDefinitions="*" ColumnDefinitions="Auto, 10, *">
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Название:" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+            <TextBox Grid.Column="2" Grid.Row="0" Text="{Binding DeliveryServiceName}" HorizontalAlignment="Stretch"  VerticalAlignment="Center"/>
+        </Grid>
+        <Grid ColumnDefinitions="*, 10, *" RowDefinitions="*, *">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Выберите продукт:" HorizontalAlignment="Center" Padding="10"/>
+            <ComboBox Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Products}" Padding="10" SelectedItem="{Binding SelectedProduct}" HorizontalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-        <TextBlock Text="Название службы доставки:" />
-        <TextBox Text="{Binding DeliveryServiceName}" Width="200" />
-
-        <TextBlock Text="Выберите продукт:" />
-        <ComboBox ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" Width="200">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-
-        <TextBlock Text="Выберите магазин:" />
-        <ComboBox ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop}" Width="200">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-
+            <TextBlock Grid.Row="0" Grid.Column="2" Text="Выберите магазин:" HorizontalAlignment="Center" Padding="10"/>
+            <ComboBox Grid.Row="1" Grid.Column="2" ItemsSource="{Binding Shops}" Padding="10" SelectedItem="{Binding SelectedShop}" HorizontalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
         <Button Content="Добавить" Command="{Binding ConfirmCommand}" HorizontalAlignment="Center" />
 
     </StackPanel>

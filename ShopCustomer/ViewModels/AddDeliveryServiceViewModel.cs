@@ -48,6 +48,16 @@ public class AddDeliveryServiceViewModel : ViewModelBase
                 SelectedShop.AddProduct(SelectedProduct);
             }
 
+            foreach (var deliverer in mainWindowViewModel.Deliveries)
+            {
+                if (deliverer.Receivers[SelectedShop].Contains(SelectedProduct))
+                {
+                    var errorWindow = new ErrorWindow($"Продукт {SelectedProduct.Name} в магазин {SelectedShop.Name} уже доставляет {deliverer.Name}");
+                    errorWindow.ShowDialog(_mainWindow);
+                    return;
+                }
+            }
+
             DeliveryService temp;
 
             if (mainWindowViewModel?.Deliveries.Any(deliverer =>
@@ -61,10 +71,11 @@ public class AddDeliveryServiceViewModel : ViewModelBase
                     temp.AddShop(SelectedShop);
                     SelectedShop.ProductOutOfStock += product =>
                     {
-                        temp.Deliver(product, SelectedShop, Random.Shared.Next(10, 40));
+                        var q = Random.Shared.Next(10, 40);
+                        temp.Deliver(product, SelectedShop, q);
                         Dispatcher.UIThread.InvokeAsync(() =>
                             mainWindowViewModel.Log.Add(
-                                $"[{DateTime.Now:T}] {DeliveryServiceName} доставил в магазин {SelectedShop.Name} {30} шт. товара {product.Name}."));
+                                $"[{DateTime.Now:T}] {DeliveryServiceName} доставил в магазин {SelectedShop.Name} {q} шт. товара {product.Name}."));
                     };
                 }
 

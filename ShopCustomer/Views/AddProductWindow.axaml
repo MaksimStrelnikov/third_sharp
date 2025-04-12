@@ -4,13 +4,20 @@
         xmlns:vm="clr-namespace:ShopCustomer.ViewModels"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="220"
+        Width="350" Height="100"
         x:DataType="vm:AddProductViewModel"
         x:Class="ShopCustomer.Views.AddProductWindow"
-        Title="Добавить продукт">
-    <StackPanel Margin="10">
-        <TextBlock Text="Введите название продукта:"/>
-        <TextBox Text="{Binding ProductName}" Margin="0,0,0,10"/>
-
+        Title="Добавить продукт"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="10" Spacing="10">
+        <Grid ColumnDefinitions="Auto, 10, *">
+            <TextBlock Grid.Column="0" Text="Название:" HorizontalAlignment="Left" VerticalAlignment="Center" />
+            <TextBox Grid.Column="2" Text="{Binding ProductName}" HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center" />
+        </Grid>
         <Button Content="Добавить"
                 Command="{Binding ConfirmCommand}"
                 HorizontalAlignment="Center"/>
